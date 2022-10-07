@@ -14,12 +14,22 @@ const thoughtSchema = new Schema({
     },
     username: {
         type: Schema.Types.ObjectId,
-        ref: 'Users',
+        ref: 'users',
         required: true,
     }, 
-    reactions: {
-        [{ type: Schema.Types.ObjectId, ref: 'reactions'}]
-    }
-})
+    reactions: 
+        [{ type: Schema.Types.ObjectId, ref: 'reactions'}],
+    toJSON: {
+        virtuals: true,
+    }, 
+    id: false,
+});
 
-/// make the model named 'Thoughts"
+// Create virtual property reactionsCount that gets the amount of reactions pre thought
+thoughtSchema.virtual('reactionsCount').get(function () {
+    return this.reactions.length;
+});
+
+const Thoughts = model('thoughts', thoughtSchema);
+
+module.exports = Thoughts;
