@@ -11,6 +11,14 @@ const thoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: () => Date.now(),
+    },
+    username: {
+        type: Schema.Types.ObjectId,
+        ref: 'Users',
+        required: true,
+    }, 
+    reactions: {
+        [{ type: Schema.Types.ObjectId, ref: 'reactions'}]
     }
 })
 
