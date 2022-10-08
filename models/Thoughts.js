@@ -40,11 +40,14 @@ const thoughtSchema = new Schema({
     }, 
     reactions: 
         [reactionsSchema],
-    toJSON: {
-        virtuals: true,
-    }, 
-    id: false,
-});
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        }, 
+        id: false,
+    }
+);
 
 // Create virtual property reactionsCount that gets the amount of reactions pre thought
 thoughtSchema.virtual('reactionsCount').get(function () {
