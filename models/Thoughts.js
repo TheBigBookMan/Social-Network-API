@@ -17,8 +17,9 @@ const thoughtSchema = new Schema({
         ref: 'users',
         required: true,
     }, 
+    // THIS WILL BE IN REFERENCE TO A SCHEMA STATE BELOW WHICH IS THE REACTIONS SCHEMA SUBDOC
     reactions: 
-        [{ type: Schema.Types.ObjectId, ref: 'reactions'}],
+        [reactionsSchema],
     toJSON: {
         virtuals: true,
     }, 
@@ -31,5 +32,10 @@ thoughtSchema.virtual('reactionsCount').get(function () {
 });
 
 const Thoughts = model('thoughts', thoughtSchema);
+
+// Schema for reactions subdocument of Thoughts
+const reactionsSchema = new Schema({
+    
+})
 
 module.exports = Thoughts;
