@@ -13,5 +13,4 @@ connection.once('open', async () => {
 
     await Users.collection.insertMany(userSeed);
     console.log('Seed complete')
-
-})
+});
