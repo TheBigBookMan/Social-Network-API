@@ -1,3 +1,7 @@
+const { ObjectId } = require('mongoose').Types;
+const { Users, Thoughts } = require('../models');
+
+module.exports = {
 
 // '/thoughts'
 // getThoughtsAll, --- get all thoughts
@@ -14,3 +18,5 @@
 // postReaction, --- create a reaction
 
 // deleteReaction --- delete a reaction
+
+};
