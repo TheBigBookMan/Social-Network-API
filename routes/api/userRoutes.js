@@ -12,17 +12,17 @@ const {
 // '/api/users'
 router.route('/')
     .get(getUsersAll)
-    .post(postUser)
-    .put(putUser);
+//     .post(postUser)
+//     .put(putUser);
 
-// '/api/users/:userId'
-router.route('/:userId')
-    .get(getUsersSingle)
-    .delete(deleteUser);
+// // '/api/users/:userId'
+// router.route('/:userId')
+//     .get(getUsersSingle)
+//     .delete(deleteUser);
 
-// /users/:userId/friends/:friendId
-router.route('/:userId/friends/:friendId')
-    .post(postFriend)
-    .delete(deleteFriend);
+// // /users/:userId/friends/:friendId
+// router.route('/:userId/friends/:friendId')
+//     .post(postFriend)
+//     .delete(deleteFriend);
 
 module.exports = router;
