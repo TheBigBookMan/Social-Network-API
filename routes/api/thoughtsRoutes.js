@@ -10,8 +10,8 @@ const {
 } = require('../../controllers/thoughtsController');
 
 // // /api/thoughts
-// router.route('/')
-//     .get(getThoughtsAll)
+router.route('/')
+    .get(getThoughtsAll)
 //     .post(postThought)
 //     .put(putThought);
 

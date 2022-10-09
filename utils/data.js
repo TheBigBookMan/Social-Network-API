@@ -41,4 +41,4 @@ const thoughtsSeed = [
 ]
 
 
-module.exports = userSeed, thoughtsSeed;
+module.exports = {userSeed, thoughtsSeed};
