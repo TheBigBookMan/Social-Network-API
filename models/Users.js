@@ -27,7 +27,12 @@ const userSchema = new Schema({
             ref: 'thoughts',
         },
     ], 
-    friends: [this]
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        }
+    ]
     }, {
         toJSON: {
             virtuals: true,

@@ -55,10 +55,20 @@ module.exports = {
                 result ? res.status(200).json(result) :
                 res.status(500).json({ message: 'Something went wrong'})
             });
-    }
+    },
 
 // other router for users friends '/users/:userId/friends/:friendId'
 // postFriend// post a new friend to users friend list
+    postFriend(req, res) {
+        Users.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$addToSet: {friend: req.params.friendId}},
+            {new: true},
+            (err, result) => {
+                result ? res.status(200).json(result) : res.status(500).json({message: 'Something went wrong'}) 
+            }
+        );
+    }
 
 // deleteFriend---// delete a friend from a users friend list
 
