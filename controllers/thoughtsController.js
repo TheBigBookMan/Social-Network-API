@@ -17,15 +17,45 @@ module.exports = {
             console.log(err);
             return res.status(500).json(err)
         });
-    }
+    },
 
 // getThoughtSingle, --- get singular thought
+    getThoughtSingle(req, res) {
+        Thoughts.findOne({_id: req.params.thoughtId})
+            .select('-__v')
+            .then(async (thought) => {
+                thought ? res.json(thought) : res.status(404).json({message: 'No user with this id'})
+            })
+            .catch((err) => {
+                console.log(err)
+                return res.status(500).json(err)
+            })
+    },
 
 // postThought, --- create a thought
+    postThought(req, res) {
+        Thoughts.create(req.body)
+        .then((thought) => res.json(thought))
+        .catch((err) => res.status(500).json(err))
+    },
 
 // putThought, --- update a thought
+    putThought(req, res) {
+        Thoughts.findOneAndUpdate({_id: req.params.thoughtId},
+            {thoughtText: req.body.thoughtText, username: req.body.username},
+            {new: true},
+            (err, result) => {
+                result ? res.status(200).json(result) : res.status(500).json({message: "Something went wrong"})
+            })
+    },
 
 // deleteThought, --- delete a thought
+    deleteThought(req, res) {
+        Thoughts.findOneAndDelete({_id: req.params.thoughtId},
+            (err, result) => {
+                result ? res.status(200).json(result) : res.status(500).json({message: 'Something went wrong'})
+            })
+    }
 
 // '/thoughts/:thoughtId/reactions
 // postReaction, --- create a reaction
