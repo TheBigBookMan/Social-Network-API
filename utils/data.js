@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongoose').Types;
 const userSeed = [
     {
         username: "BennyBoy",
@@ -16,12 +17,11 @@ const userSeed = [
 const thoughtsSeed = [
     {
         thoughtText: 'I am really enjoying coding.',
-        username: 'HarryGuy',
         reactions: [
             {
                 reactionBody: 'This is really good.',
                 username: 'SallyPaints'
-            }, 
+            },
             {
                 reactionBody: 'I am also enjoying coding.',
                 username: 'BennyBoy'
@@ -30,7 +30,6 @@ const thoughtsSeed = [
     },
     {
         thoughtText: 'Javascript is hard to learn.',
-        username: 'SallyPaints',
         reactions: [
             {
                 reactionBody: 'I also agree that it is hard to learn.',

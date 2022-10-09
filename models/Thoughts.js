@@ -18,6 +18,7 @@ const reactionsSchema = new Schema({
     date: {
         type: Date,
         default: () => Date.now(),
+        get: (date) => timeSince(date),
     }
 });
 
@@ -32,6 +33,7 @@ const thoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: () => Date.now(),
+        get: (date) => timeSince(date),
     },
     username: {
         type: Schema.Types.ObjectId,
