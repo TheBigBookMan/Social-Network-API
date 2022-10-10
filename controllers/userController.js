@@ -68,8 +68,18 @@ module.exports = {
                 result ? res.status(200).json(result) : res.status(500).json({message: 'Something went wrong'}) 
             }
         );
-    }
+    },
 
 // deleteFriend---// delete a friend from a users friend list
-
+    deleteFriend(req, res) {
+        Users.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$pull: {friends: req.params.friendId}},
+            {runValidators: true, new: true}
+        )
+        .then((friend) => {
+            friend ? res.json(friend) : res.status(404).json({message: 'Something went wrong'})
+        })
+        .catch((err) => res.status(500).json(err))
+    }
 };
