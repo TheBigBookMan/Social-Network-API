@@ -21,8 +21,8 @@ router.route('/:thoughtId')
     .put(putThought);
 
 // // /api/thoughts/:thoughtId/reactions
-// router.route('/:thoughtId/reactions')
-//     .post(postReaction)
+router.route('/:thoughtId/reactions')
+    .put(postReaction)
 //     .delete(deleteReaction)
 
 module.exports = router;
