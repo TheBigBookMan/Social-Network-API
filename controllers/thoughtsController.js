@@ -72,5 +72,15 @@ module.exports = {
     },
 
 // deleteReaction --- delete a reaction
-
+    deleteReaction(req, res) {
+        Thoughts.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$pull: {reactions: {reactionId: req.body.reactionId}}},
+            {runValidators: true, new: true}
+        )
+        .then((reaction) => {
+            reaction ? res.json(reaction) : res.status(404).json({message: "Something went wrong"})
+        })
+        .catch((err) => res.status(500).json(err))
+    }
 };
