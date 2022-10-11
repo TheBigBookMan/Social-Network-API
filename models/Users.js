@@ -1,9 +1,10 @@
+// Import mongoose methods
 const { Schema, model } = require('mongoose');
 
 // Email validator for schema
 var validateEmail = function(email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email)
+    return re.test(email);
 };
 
 // User schema

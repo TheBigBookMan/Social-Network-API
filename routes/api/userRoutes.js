@@ -1,3 +1,4 @@
+// Import routes and methods
 const router = require('express').Router();
 const {
     getUsersAll,

@@ -1,3 +1,4 @@
+// Import mongoose methods
 const { Schema, model, Types } = require('mongoose');
 
 // Schema for reactions subdocument of Thoughts

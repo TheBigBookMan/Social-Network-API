@@ -1,3 +1,4 @@
+// Import router and methods
 const router = require('express').Router();
 const {
     getThoughtsAll,
@@ -9,20 +10,20 @@ const {
     deleteReaction
 } = require('../../controllers/thoughtsController');
 
-// // /api/thoughts
+// /api/thoughts
 router.route('/')
     .get(getThoughtsAll)
     .post(postThought);    
 
-// // /api/thoughts/:thoughtId
+// /api/thoughts/:thoughtId
 router.route('/:thoughtId')
     .get(getThoughtSingle)
     .delete(deleteThought)
     .put(putThought);
 
-// // /api/thoughts/:thoughtId/reactions
+// /api/thoughts/:thoughtId/reactions
 router.route('/:thoughtId/reactions')
     .put(postReaction)
-    .delete(deleteReaction)
+    .delete(deleteReaction);
 
 module.exports = router;

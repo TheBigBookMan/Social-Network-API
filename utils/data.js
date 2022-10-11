@@ -1,4 +1,7 @@
+// Import object
 const { ObjectId } = require('mongoose').Types;
+
+// Create users seed data
 const userSeed = [
     {
         username: "BennyBoy",
@@ -12,8 +15,9 @@ const userSeed = [
         username: "SallyPaints",
         email: "sallypaints@google.com"
     }
-]
+];
 
+// Create thought seed data
 const thoughtsSeed = [
     {
         thoughtText: 'I am really enjoying coding.',
@@ -37,7 +41,6 @@ const thoughtsSeed = [
             }
         ]
     }
-]
-
+];
 
 module.exports = {userSeed, thoughtsSeed};
